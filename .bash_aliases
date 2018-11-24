@@ -1,0 +1,7 @@
+alias gla='git config --get-regexp alias'
+alias gk='gitk --all'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias t2='tree -L 2'
+alias t3='tree -L 3'
