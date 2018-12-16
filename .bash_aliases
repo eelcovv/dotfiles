@@ -1,7 +1,11 @@
-alias gla='git config --get-regexp alias'
 alias gk='gitk --all'
+alias gla='git config --get-regexp alias'
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
+alias node=nodejs
+alias notes='cd ~/Desktop/Notes && ll'
+alias python=python3
 alias t2='tree -L 2'
 alias t3='tree -L 3'
+alias todo='code ~/Desktop/Notes/TODO.md'

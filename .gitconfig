@@ -15,10 +15,12 @@
   visual = !gitk
 [user]
   email = jackdebidda@gmail.com
-  name = jackdbd
+  name = Giacomo Debidda
+[github]
+  user = jackdbd
 [core]
   editor = vim
 [http]
-	cookiefile = /home/giacomo/.gitcookies
+	cookiefile = /home/jack/.gitcookies
 [cola]
 	spellcheck = false

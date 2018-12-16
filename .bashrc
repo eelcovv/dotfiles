@@ -115,21 +115,34 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Python virtual environments
-export WORKON_HOME=$HOME/.virtualenvs
-# load virtualenvwrapper commands
-. /usr/local/bin/virtualenvwrapper.sh
-
 # Node.js Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# This is to add virtualenv-clone, virtualenv, pewtwo, pipenv, pipenv-resolver to PATH
-export PATH="/home/giacomo/.local/bin:$PATH"
+# Nim programming language
+export PATH="$HOME/.nimble/bin:$PATH"
 
-# Added by Miniconda3 installer
-export PATH="/home/giacomo/miniconda3/bin:$PATH"
+# pip bash completion start
+_pip_completion()
+{
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 ) )
+}
+complete -o default -F _pip_completion pip
+# pip bash completion end
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+
+# bash hook for direnv (https://direnv.net/)
+eval "$(direnv hook bash)"
+
+# added by Miniconda3 installer
+export PATH="$HOME/miniconda3/bin:$PATH"
 
 # Add spatialite to PATH
 export PATH="/usr/bin/spatialite:$PATH"
