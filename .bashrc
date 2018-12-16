@@ -146,3 +146,6 @@ export PATH="$HOME/miniconda3/bin:$PATH"
 
 # Add spatialite to PATH
 export PATH="/usr/bin/spatialite:$PATH"
+
+# Add deno to PATH
+export PATH="$HOME/.deno/bin:$PATH"
