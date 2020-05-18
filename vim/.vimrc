@@ -1,4 +1,4 @@
-" File: _vimrc             
+" File: _vimrc
 " Version: 1
 " Author: Seth Mason
 " Created: 19 Nov 2003 10:20:19

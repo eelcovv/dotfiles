@@ -1,0 +1,40 @@
+[alias]
+  au = add -u
+  bd = branch -d
+  br = branch
+  ca = commit --amend
+  can = commit --amend --no-edit
+  cm = commit --m
+  co = checkout
+  cp = cherry-pick
+  dt = difftool --gui --dir-diff
+  dump = cat-file -p
+  fp = fetch --prune
+  fu = fetch upstream
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  ls = log --oneline
+  pf = push --force-with-lease
+  pum = pull upstream master
+  ra = rebase --abort
+  rc = rebase --continue
+  ri = rebase --interactive
+  rim = rebase --interactive origin/master
+  rsh = reset --soft HEAD~
+  sl = stash list
+  ss = stash save
+  st = status
+  type = cat-file -t
+  visual = !gitk
+[cola]
+  spellcheck = false
+[core]
+  editor = vim
+[github]
+  user = jackdbd
+[http]
+  cookiefile = /home/jack/.gitcookies
+[merge]
+  tool = meld
+[user]
+  email = jackdebidda@gmail.com
+  name = Giacomo Debidda
