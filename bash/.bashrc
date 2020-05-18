@@ -12,10 +12,17 @@ HISTCONTROL=ignoreboth
 # https://stackoverflow.com/questions/19454837/bash-histsize-vs-histfilesize
 HISTSIZE=1000
 HISTFILESIZE=2000
+# https://sanctum.geek.nz/arabesque/better-bash-history/
+HISTIGNORE='ls:ll:tree:t2:t3:bg:fg:history'
+HISTTIMEFORMAT='%F %T '
+# Store history after each command, do not wait for the session to terminate
+PROMPT_COMMAND='history -a'
 
 ## Shell optional behavior #####################################################
 # https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html
 shopt -s histappend
+# one command per line, so they are easier to parse in bash_history
+shopt -s cmdhist
 shopt -s checkwinsize
 
 ## Aliases #####################################################################
