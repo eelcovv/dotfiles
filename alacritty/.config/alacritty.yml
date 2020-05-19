@@ -1,0 +1,20 @@
+background_opacity: 1.0
+
+font:
+  # Normal (roman) font face
+  normal:
+    family: JetBrainsMono Nerd Font # mononoki Nerd Font Mono # FiraCode Nerd Font Mono
+    # The `style` can be specified to pick a specific face.
+    style: Regular
+
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
