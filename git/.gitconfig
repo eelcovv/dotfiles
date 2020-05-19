@@ -28,7 +28,7 @@
 [cola]
   spellcheck = false
 [core]
-  editor = vim
+  editor = nvim
 [github]
   user = jackdbd
 [http]
