@@ -1,0 +1,9 @@
+.ssh/conf.d/*
+# unignore github and gitlab config
+!.ssh/conf.d/github.conf
+!.ssh/conf.d/gitlab.conf
+
+.ssh/keys/
+
+.ssh/known_hosts
+
