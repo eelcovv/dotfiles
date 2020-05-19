@@ -109,16 +109,13 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 function __add_to_path() {
     if [[ :$PATH: == *:"$1":* ]]
     then
-        echo "$1 is already in PATH"
+        # "$1 is already in PATH"
+        PATH=$PATH
     else
         echo "Add $1 to PATH"
         PATH=$1:$PATH
     fi
 }
-
-# Go
-__add_to_path "$HOME/go"
-__add_to_path "/usr/local/go/bin"
 
 # Nim
 __add_to_path "$HOME/.nimble/bin"
