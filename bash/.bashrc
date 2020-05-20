@@ -57,21 +57,25 @@ if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
     shellhistory enable
 fi
 
-## Color prompt ################################################################
+## Git #########################################################################
 
-# https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
-[ -x /usr/bin/dircolors ] && eval "$(dircolors -b)"
+# https://github.com/git/git/tree/master/contrib/completion
+[ -x ~/bin/git-completion.bash ] && source ~/bin/git-completion.bash
 
 # https://stackoverflow.com/questions/15883416/adding-git-branch-on-the-bash-command-prompt
 # The git-prompt.sh script includes the function __git_ps1
 [ -x ~/bin/git-prompt.sh ] && source ~/bin/git-prompt.sh
 
+## Color prompt ################################################################
+
+# https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
+[ -x /usr/bin/dircolors ] && eval "$(dircolors -b)"
+
 # use tput to style PS1 and PS2
 # http://www.linuxcommand.org/lc3_adv_tput.php
 __bold=$(tput bold) # set bold mode on
 __reset=$(tput sgr0) # reset all terminal attributes (bold, colors)
-if [ $(tput colors) -ge 256 ]
-then
+if [ $(tput colors) -ge 256 ]; then
     __red=$(tput setaf 124)
     __orange=$(tput setaf 166)
     __yellow=$(tput setaf 220)
@@ -123,8 +127,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 ## Programming languages #######################################################
 
 function __add_to_path() {
-    if [[ :$PATH: == *:"$1":* ]]
-    then
+    if [[ :$PATH: == *:"$1":* ]]; then
         # "$1 is already in PATH"
         PATH=$PATH
     else
