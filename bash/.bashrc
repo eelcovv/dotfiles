@@ -166,6 +166,10 @@ if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
     shellhistory enable
 fi
 
+# Load SSH keys for GitHub and Gitlab
+ssh-add ~/.ssh/keys/id_rsa_github
+ssh-add ~/.ssh/keys/id_rsa_gitlab
+
 ## Git #########################################################################
 
 # https://github.com/git/git/tree/master/contrib/completion
@@ -206,6 +210,9 @@ __add_to_path "$HOME/.cargo/bin"
 __add_to_path "$HOME/.nimble/bin"
 __add_to_path "$HOME/.poetry/bin"
 __add_to_path "$HOME/miniconda3/bin"
+__add_to_path "$HOME/.pyenv/bin"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 complete -o default -F _pip_completion pip
 
