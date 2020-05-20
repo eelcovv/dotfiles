@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Bash file test operators
+# https://www.tldp.org/LDP/abs/html/fto.html
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -26,48 +29,61 @@ shopt -s cmdhist
 shopt -s checkwinsize
 
 ## Aliases #####################################################################
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 ## CLI tools ###################################################################
 
 # make less more friendly for non-text input files, see lesspipe
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Source Fuzzy Finder if available https://github.com/junegunn/fzf
+# Source Fuzzy Finder
+# https://github.com/junegunn/fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# bash hook for direnv https://direnv.net/
+# z to jump around directories
+# https://github.com/rupa/z/
+[ -x ~/bin/z.sh ] && source ~/bin/z.sh
+
+# bash hook for direnv
+# https://direnv.net/
 eval "$(direnv hook bash)"
 
+# Save shell commands to visualize them later
+# https://github.com/pawamoy/shell-history
+# Launch the web app with shellhistory-web. Then go to http://localhost:5000/
+# only load it for interactive shells
+if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
+    . $(shellhistory-location)
+    shellhistory enable
+fi
+
 ## Color prompt ################################################################
+
 # https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
+[ -x /usr/bin/dircolors ] && eval "$(dircolors -b)"
 
-if [ -x /usr/bin/dircolors ]; then
-    eval "$(dircolors -b)"
+# https://stackoverflow.com/questions/15883416/adding-git-branch-on-the-bash-command-prompt
+# The git-prompt.sh script includes the function __git_ps1
+[ -x ~/bin/git-prompt.sh ] && source ~/bin/git-prompt.sh
+
+# use tput to style PS1 and PS2
+# http://www.linuxcommand.org/lc3_adv_tput.php
+__bold=$(tput bold) # set bold mode on
+__reset=$(tput sgr0) # reset all terminal attributes (bold, colors)
+if [ $(tput colors) -ge 256 ]
+then
+    __red=$(tput setaf 124)
+    __orange=$(tput setaf 166)
+    __yellow=$(tput setaf 220)
+    PS1='\[$__bold\]\[$__red\][\u \w]\[$__orange\]$(__git_ps1 "(%s)")\[$__yellow\]$ \[$__reset\]'
+else
+    __yellow=$(tput setaf 3)
+    PS1='\[$__bold\][\u \w]$(__git_ps1 "(%s)")\[$__yellow\]$ \[$__reset\]'
 fi
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+PS2='\[$__bold\]\[$__yellow\] > \[$__reset\]'
 
-function __parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
-function __make_color_prompt() {
-    local bold="01"
-    local fg="38;5" #foreground
-    local bg="48;5" # background
-    local raa="\e[00m" # reset all attributes
-    local __user_and_cwd="[\e[$bold;$fg;166m\]\u \w$raa]"
-    local __git_branch_color="\e[$bold;$fg;200m"
-    PS1="$__user_and_cwd$__git_branch_color$(__parse_git_branch)$raa$ "
-}
-__make_color_prompt
-
+# handy function to see the colors available for this the terminal emulator
 function colorgrid() {
     iter=16
     while [ $iter -lt 52 ]
