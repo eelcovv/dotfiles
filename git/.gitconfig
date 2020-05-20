@@ -1,18 +1,26 @@
+# Other possibly useful aliases
+# https://gist.github.com/pksunkara/988716
+# Other diff/merge tools
+# https://stackoverflow.com/questions/572237/whats-the-best-three-way-merge-tool
 [alias]
-  au = add -u
-  bd = branch -d
+  au = add --update
+  bd = branch --delete
   br = branch
   ca = commit --amend
   can = commit --amend --no-edit
-  cm = commit --m
+  cm = commit --message
   co = checkout
   cp = cherry-pick
-  dt = difftool --gui --dir-diff
+  dt = difftool
+  dtk = difftool --tool=kdiff3
+  dth = difftool --tool-help
   dump = cat-file -p
   fp = fetch --prune
   fu = fetch upstream
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  lg = log --oneline --graph --decorate
   ls = log --oneline
+  mt = mergetool
   pf = push --force-with-lease
   pum = pull upstream master
   ra = rebase --abort
@@ -29,12 +37,23 @@
   spellcheck = false
 [core]
   editor = nvim
+[diff]
+  tool = meld
+[difftool]
+  prompt = true
+[difftool "meld"]
+  cmd = meld "$LOCAL" "$REMOTE"
 [github]
   user = jackdbd
 [http]
   cookiefile = /home/jack/.gitcookies
 [merge]
   tool = meld
+[mergetool]
+  prompt = true
 [user]
   email = jackdebidda@gmail.com
   name = Giacomo Debidda
+  username = jackdbd
+[web]
+  browser = chromium-browser

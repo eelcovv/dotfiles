@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
+# Shell style guide
+# https://google.github.io/styleguide/shellguide.html
+
 # Bash file test operators
 # https://www.tldp.org/LDP/abs/html/fto.html
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
+
+EDITOR="nvim"
 
 ## bash_history config #########################################################
+
 # don't put duplicate lines or lines starting with space in the history
 HISTCONTROL=ignoreboth
 # https://stackoverflow.com/questions/19454837/bash-histsize-vs-histfilesize
@@ -22,13 +25,115 @@ HISTTIMEFORMAT='%F %T '
 PROMPT_COMMAND='history -a'
 
 ## Shell optional behavior #####################################################
+
 # https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html
 shopt -s histappend
 # one command per line, so they are easier to parse in bash_history
 shopt -s cmdhist
 shopt -s checkwinsize
 
+## Functions ###################################################################
+
+# colorgrid - Show the colors available for this the terminal emulator
+# usage: colorgrid
+# see: https://unix.stackexchange.com/a/285956/413087
+function colorgrid() {
+    iter=16
+    while [ $iter -lt 52 ]
+    do
+        second=$[$iter+36]
+        third=$[$second+36]
+        four=$[$third+36]
+        five=$[$four+36]
+        six=$[$five+36]
+        seven=$[$six+36]
+        if [ $seven -gt 250 ];then seven=$[$seven-251]; fi
+
+        echo -en "\033[38;5;$(echo $iter)m█ "
+        printf "%03d" $iter
+        echo -en "   \033[38;5;$(echo $second)m█ "
+        printf "%03d" $second
+        echo -en "   \033[38;5;$(echo $third)m█ "
+        printf "%03d" $third
+        echo -en "   \033[38;5;$(echo $four)m█ "
+        printf "%03d" $four
+        echo -en "   \033[38;5;$(echo $five)m█ "
+        printf "%03d" $five
+        echo -en "   \033[38;5;$(echo $six)m█ "
+        printf "%03d" $six
+        echo -en "   \033[38;5;$(echo $seven)m█ "
+        printf "%03d" $seven
+
+        iter=$[$iter+1]
+        printf '\r\n'
+    done
+}
+
+# ex - archive extractor
+# usage: ex <file>
+# see https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions
+function ex {
+ if [ -z "$1" ]; then
+    # display usage if no parameters given
+    echo "Usage: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    echo "       ex <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+    return 1
+ else
+    for n in $@
+    do
+      if [ -f "$n" ] ; then
+          case "${n%,}" in
+            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) 
+                         tar xvf "$n"       ;;
+            *.lzma)      unlzma ./"$n"      ;;
+            *.bz2)       bunzip2 ./"$n"     ;;
+            *.rar)       unrar x -ad ./"$n" ;;
+            *.gz)        gunzip ./"$n"      ;;
+            *.zip)       unzip ./"$n"       ;;
+            *.z)         uncompress ./"$n"  ;;
+            *.7z|*.arj|*.cab|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.rpm|*.udf|*.wim|*.xar)
+                         7z x ./"$n"        ;;
+            *.xz)        unxz ./"$n"        ;;
+            *.exe)       cabextract ./"$n"  ;;
+            *)
+                         echo "extract: '$n' - unknown archive method"
+                         return 1
+                         ;;
+          esac
+      else
+          echo "'$n' - file does not exist"
+          return 1
+      fi
+    done
+fi
+}
+
+# print_path - print each entry of PATH on a single line
+# usage: print_path
+function print_path () {
+    command tr ':' '\n' <<< "$PATH"
+}
+
+# __add_to_path - add to PATH (if not in PATH already)
+# usage: __add_to_path "/some/full/path/"
+function __add_to_path() {
+    if [[ :$PATH: == *:"$1":* ]]; then
+        # "$1 is already in PATH"
+        PATH=$PATH
+    else
+        echo "Add $1 to PATH"
+        PATH=$1:$PATH
+    fi
+}
+
+_pip_completion() {
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 ) )
+}
+
 ## Aliases #####################################################################
+
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 ## CLI tools ###################################################################
@@ -36,9 +141,11 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Source Fuzzy Finder
+# fzf is a command line fuzzy finder
 # https://github.com/junegunn/fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+__add_to_path "$HOME/.fzf/bin"
+[ -f ~/.fzf/shell/completion.bash ] && source "$HOME/.fzf/shell/completion.bash" 2> /dev/null
+[ -f ~/.fzf/shell/key-bindings.bash ] && source "$HOME/.fzf/shell/key-bindings.bash"
 
 # z to jump around directories
 # https://github.com/rupa/z/
@@ -46,6 +153,8 @@ shopt -s checkwinsize
 
 # bash hook for direnv
 # https://direnv.net/
+# eval is evil, but direnv is too useful not to have it
+# https://google.github.io/styleguide/shellguide.html#s6.6-eval
 eval "$(direnv hook bash)"
 
 # Save shell commands to visualize them later
@@ -53,7 +162,7 @@ eval "$(direnv hook bash)"
 # Launch the web app with shellhistory-web. Then go to http://localhost:5000/
 # only load it for interactive shells
 if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
-    . $(shellhistory-location)
+    source $(shellhistory-location)
     shellhistory enable
 fi
 
@@ -87,73 +196,20 @@ fi
 
 PS2='\[$__bold\]\[$__yellow\] > \[$__reset\]'
 
-# handy function to see the colors available for this the terminal emulator
-function colorgrid() {
-    iter=16
-    while [ $iter -lt 52 ]
-    do
-        second=$[$iter+36]
-        third=$[$second+36]
-        four=$[$third+36]
-        five=$[$four+36]
-        six=$[$five+36]
-        seven=$[$six+36]
-        if [ $seven -gt 250 ];then seven=$[$seven-251]; fi
-
-        echo -en "\033[38;5;$(echo $iter)m█ "
-        printf "%03d" $iter
-        echo -en "   \033[38;5;$(echo $second)m█ "
-        printf "%03d" $second
-        echo -en "   \033[38;5;$(echo $third)m█ "
-        printf "%03d" $third
-        echo -en "   \033[38;5;$(echo $four)m█ "
-        printf "%03d" $four
-        echo -en "   \033[38;5;$(echo $five)m█ "
-        printf "%03d" $five
-        echo -en "   \033[38;5;$(echo $six)m█ "
-        printf "%03d" $six
-        echo -en "   \033[38;5;$(echo $seven)m█ "
-        printf "%03d" $seven
-
-        iter=$[$iter+1]
-        printf '\r\n'
-    done
-}
-
 ## Compilers ###################################################################
 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 ## Programming languages #######################################################
 
-function __add_to_path() {
-    if [[ :$PATH: == *:"$1":* ]]; then
-        # "$1 is already in PATH"
-        PATH=$PATH
-    else
-        echo "Add $1 to PATH"
-        PATH=$1:$PATH
-    fi
-}
-
-# Nim
-__add_to_path "$HOME/.nimble/bin"
-
-# Rust
 __add_to_path "$HOME/.cargo/bin"
-
-# Python
+__add_to_path "$HOME/.nimble/bin"
 __add_to_path "$HOME/.poetry/bin"
 __add_to_path "$HOME/miniconda3/bin"
 
-_pip_completion() {
-    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
-                   COMP_CWORD=$COMP_CWORD \
-                   PIP_AUTO_COMPLETE=1 $1 ) )
-}
 complete -o default -F _pip_completion pip
 
 # nvm (Node.js Version Manager) and its autocompletion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"

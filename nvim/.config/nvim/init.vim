@@ -37,8 +37,6 @@ call plug#end()
 " https://jdhao.github.io/2019/01/11/line_number_setting_nvim/
 set number
 
-syntax on " syntax highlighting
-
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set expandtab " replace tabs with spaces
