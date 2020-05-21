@@ -16,6 +16,7 @@ alias ls='ls --color=auto'
 alias myip="curl http://ipecho.net/plain; echo"
 alias notes='cd ~/Dropbox/Notes && ll'
 alias packages='sudo apt list --installed | less'
+alias pk="pkill --signal SIGTERM --echo --count" # e.g. pkill tmux
 alias repos='cd ~/repos'
 alias saa='sudo apt autoremove'
 alias sai='sudo apt install'

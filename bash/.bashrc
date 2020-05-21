@@ -108,6 +108,11 @@ function ex {
 fi
 }
 
+function mcd() {
+    mkdir -p "$1"
+    cd "$1"
+}
+
 # print_path - print each entry of PATH on a single line
 # usage: print_path
 function print_path () {
