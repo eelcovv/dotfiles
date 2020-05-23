@@ -9,18 +9,16 @@ alias gg='gitg'
 alias gk='gitk --all'
 alias gla='git config --get-regexp alias'
 alias grep='grep --color=auto'
-alias l='ls -CF'
+alias l='ls -C'
 alias la='ls -A'
 alias ll='ls -alF'
-alias ls='ls --color=auto'
+alias ls='ls -l --human-readable --color=auto --group-directories-first'
 alias myip="curl http://ipecho.net/plain; echo"
-alias notes='cd ~/Dropbox/Notes && ll'
+alias notes='cd ~/Dropbox/notes'
 alias packages='sudo apt list --installed | less'
 alias pk="pkill --signal SIGTERM --echo --count" # e.g. pkill tmux
 alias repos='cd ~/repos'
-alias saa='sudo apt autoremove'
-alias sai='sudo apt install'
-alias sau='sudo apt update'
+alias sa='sudo apt'
 alias snaps='snap list'
 alias syslog='sudo tail -100f /var/log/syslog'
 alias t2='tree -L 2'
@@ -29,3 +27,5 @@ alias vi='nvim'
 alias vim='nvim'
 alias webify="mogrify -resize 690\> *.png"
 alias wget="wget --continue"
+alias yt='youtube-dl --add-metadata -ic' # download video
+alias yta='youtube-dl --add-metadata -xic' # download only audio
