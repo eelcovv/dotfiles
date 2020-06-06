@@ -11,4 +11,3 @@ stow . --target ~
 See also:
 
 - [shell startup scripts](https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html)
-
