@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# This file allows to extend direnv
+# https://github.com/direnv/direnv#the-stdlib
+
+# Integrate direnv with nvm (Node.js version manager)
+# https://blog.differentpla.net/blog/2019/01/30/nvm-direnv/
+use_nodejs() {
+    NODE_VERSION="$1"
+
+    type nvm >/dev/null 2>&1 || . ~/.nvm/nvm.sh
+    nvm use "$NODE_VERSION"
+}
