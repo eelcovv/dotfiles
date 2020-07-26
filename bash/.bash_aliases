@@ -12,6 +12,7 @@ alias grep='grep --color=auto'
 alias l='ls -C'
 alias la='ls -A'
 alias ll='ls -alF'
+alias loc='git ls-files | xargs wc -l' # https://stackoverflow.com/a/4822516/3036129
 alias ls='ls -l --human-readable --color=auto --group-directories-first'
 alias lzd='lazydocker'
 alias yt='youtube-dl --add-metadata -ic'
