@@ -1,0 +1,4 @@
+# Classpath and the runtime basis files are cached in the current directory
+# under .cpcache/
+# https://clojure.org/reference/deps_and_cli#_check_cache
+.cpcache
