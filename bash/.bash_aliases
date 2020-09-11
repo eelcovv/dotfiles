@@ -33,4 +33,5 @@ alias webify="mogrify -resize 690\> *.png"
 alias webserver='python -m http.server 8090'
 alias wget="wget --continue"
 alias yt='youtube-dl --add-metadata -ic' # download video
-alias yta='youtube-dl --add-metadata -xic' # download only audio
+alias yta='youtube-dl --extract-audio --ignore-errors' # download only audio, in opus format
+alias ytmp3='youtube-dl --ignore-errors --extract-audio --audio-format mp3' # download only audio, in mp3 format
