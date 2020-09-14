@@ -218,6 +218,7 @@ __add_to_path "$HOME/.cargo/bin"
 __add_to_path "$HOME/.nimble/bin"
 __add_to_path "$HOME/.poetry/bin"
 __add_to_path "$HOME/.pyenv/bin"
+__add_to_path "$HOME/bin/miniconda3/bin"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -230,4 +231,3 @@ export NVM_DIR="$HOME/.nvm"
 
 export DENO_INSTALL="~/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-
