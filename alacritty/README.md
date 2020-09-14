@@ -17,7 +17,7 @@ I use some fonts from [nerd-fonts](https://github.com/ryanoasis/nerd-fonts). See
 
 You can preview the fonts [here](https://www.nerdfonts.com/font-downloads).
 
-To see the fonts installed on your system you can use this command:
+Use this command to list all fonts installed on your system:
 
 ```sh
 fc-list : family style
