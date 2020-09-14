@@ -171,11 +171,14 @@ if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
     shellhistory enable
 fi
 
-# Load SSH keys for GitHub and Gitlab
+# Add SSH keys to the SSH agent
 ssh-add ~/.ssh/keys/id_rsa_github
 ssh-add ~/.ssh/keys/id_rsa_gitlab
 
 ## Git #########################################################################
+
+# -x checks that a file exists and can be executed.
+# Use chmod 777 on git-completion.bash and git-prompt.sh
 
 # https://github.com/git/git/tree/master/contrib/completion
 [ -x ~/bin/git-completion.bash ] && source ~/bin/git-completion.bash
