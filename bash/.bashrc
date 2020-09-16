@@ -214,6 +214,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 ## Programming languages #######################################################
 
+__add_to_path "$HOME/.local/bin"
 __add_to_path "$HOME/.cargo/bin"
 __add_to_path "$HOME/.nimble/bin"
 __add_to_path "$HOME/.poetry/bin"
