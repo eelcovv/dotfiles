@@ -1,6 +1,5 @@
 alias ..="cd .."
 alias ...="cd ../.."
-alias code="codium"
 alias df="pydf"
 alias diff='meld'
 alias dotfiles='cd ~/repos/dotfiles'
