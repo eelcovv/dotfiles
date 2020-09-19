@@ -22,6 +22,7 @@ alias packages='sudo apt list --installed | less'
 alias pk="pkill --signal SIGTERM --echo --count" # e.g. pkill tmux
 alias repl='planck'
 alias repos='cd ~/repos'
+alias rm="trash"
 alias sa='sudo apt'
 alias snaps='snap list'
 alias syslog='sudo tail -100f /var/log/syslog'
