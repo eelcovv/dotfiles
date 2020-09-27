@@ -12,6 +12,8 @@ stow . --target ~
 
 I use [vim-plug](https://github.com/junegunn/vim-plug) as my Neovim plugin manager.
 
+Don't forget to install the plugin manager before installing the plugins.
+
 Plugins:
 
 - [far.vim](https://github.com/brooth/far.vim): find and replace text through multiple files.
@@ -24,11 +26,9 @@ Plugins:
 - [vim-signify](https://github.com/mhinz/vim-signify): show added/removed lines in files managed by a VCS (e.g. git).
 - [vim-snippets](https://github.com/honza/vim-snippets): snippet files.
 
-
-Install plugins:
+Install plugins in Neovim command mode:
 
 ```sh
 nvim
 :PlugInstall
 ```
-
