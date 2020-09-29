@@ -172,6 +172,7 @@ if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
 fi
 
 # Add SSH keys to the SSH agent
+ssh-add ~/.ssh/keys/id_rsa_digitalocean
 ssh-add ~/.ssh/keys/id_rsa_github
 ssh-add ~/.ssh/keys/id_rsa_gitlab
 
