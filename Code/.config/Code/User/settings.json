@@ -1,0 +1,29 @@
+{
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "emmet.includeLanguages": { "javascript": "html" },
+    "emmet.triggerExpansionOnTab": true,
+    "html-css-class-completion.enableEmmetSupport": true,
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "kite.showWelcomeNotificationOnStartup": false,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[nunjucks]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.exclude": {
+        "node_modules/": true
+    },
+    // "TTSLua.createXml": true
+}
