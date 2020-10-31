@@ -2,6 +2,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias df="pydf"
 alias diff='meld'
+alias dk="docker"
 alias dotfiles='cd ~/repos/dotfiles'
 alias down='cd ~/Downloads'
 alias du="ncdu"
@@ -12,7 +13,7 @@ alias grep='grep --color=auto'
 alias l='ls -C'
 alias la='ls -A'
 alias ll='ls -alF'
-alias loc='git ls-files | xargs wc -l' # https://stackoverflow.com/a/4822516/3036129
+alias loc='cloc --progress=1 --vcs git' # or cloc --progress=1 --vcs git --by-file
 alias ls='ls -l --human-readable --color=auto --group-directories-first'
 alias lzd='lazydocker'
 alias yt='youtube-dl --add-metadata -ic'
