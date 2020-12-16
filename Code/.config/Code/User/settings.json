@@ -1,29 +1,76 @@
 {
+    // My personal rule: write only non-default settings and comment why I don't
+    // use the default value of a specific VSCode setting.
+    // https://vscode.readthedocs.io/en/latest/getstarted/settings/
+    // https://code.visualstudio.com/docs/editor/intellisense#_customizing-intellisense
+
+    // Never use CSS floats. But this setting is mostly a reminder that CSS lint
+    // settings are available in VSCode.
+    "css.lint.float": "error",
+
+    // "diffEditor.ignoreTrimWhitespace": true,
+
+    // When this is on, it trips me up all the time.
+    "editor.acceptSuggestionOnEnter": "off",
+
+    // I find the minimap useless.
     "editor.minimap.enabled": false,
+
+    // I don't want these suggestions if I'm typing fast (i.e. if I know what to write).
+    "editor.quickSuggestionsDelay": 100,
+
+    // I want to render all the spaces for all the languages. It's abolutely
+    // fundamental for Makefiles, but I like it for any other language too.
+    "editor.renderWhitespace": "all",
+
+    // I want to occasionally exceed 80 characters, and never 120 characters.
     "editor.rulers": [
         80,
         120
     ],
+
+    // TODO: double-check emmet configuration. I'm not sure if I need this.
     "emmet.includeLanguages": { "javascript": "html" },
+
+    // I don't understand why true is not the default value for this.
     "emmet.triggerExpansionOnTab": true,
+
+    // Hide stuff I don't need to see from the file explorer
+    "files.exclude": {
+        "**/node_modules/": true,
+        "**/zig-cache/": true,
+    },
+
+    // TODO: by default, git commits are not signed with GPG. Should I enable this?
+    // "git.enableCommitSigning": false,
+
+    // I don't understand why true is not the default value for this.
+    // https://github.com/Zignd/HTML-CSS-Class-Completion
     "html-css-class-completion.enableEmmetSupport": true,
-    "python.defaultInterpreterPath": "/usr/bin/python3",
+
+    // Obviously the kite wizard at the startup is quite annoying.
     "kite.showWelcomeNotificationOnStartup": false,
-    "diffEditor.ignoreTrimWhitespace": true,
-    "[jsonc]": {
+
+    // Setting a default python interpreter is convenient, but it might not be
+    // the best thing to do. It would be better to hook up VSCode to the python
+    // virtual environment for each project.
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+
+    // language specific overrides
+    "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.suggestOnTriggerCharacters": false,
+        // "editor.wordBasedSuggestions": false,
+    },
     "[nunjucks]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "files.exclude": {
-        "node_modules/": true
-    },
-    // "TTSLua.createXml": true
 }
