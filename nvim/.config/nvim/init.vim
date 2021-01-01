@@ -16,6 +16,10 @@ Plug 'morhetz/gruvbox'
 " toggle comment/uncomment
 Plug 'scrooloose/nerdcommenter'
 
+" autocompletion
+" https://github.com/neoclide/coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " snippet files
 Plug 'SirVer/ultisnips'
 
