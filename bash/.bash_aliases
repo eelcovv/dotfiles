@@ -10,15 +10,13 @@ alias gg='gitg'
 alias gk='gitk --all'
 alias gla='git config --get-regexp alias'
 alias grep='grep --color=auto'
-alias l='ls -C'
-alias la='ls -A'
-alias ll='ls -alF'
+alias l='lsd --oneline' # ls -C
+alias la='lsd --almost-all --oneline'
+alias ll='lsd --all' # ls -alF
 alias loc='cloc --progress=1 --vcs git' # or cloc --progress=1 --vcs git --by-file
 alias ls='ls -l --human-readable --color=auto --group-directories-first'
 alias lzd='lazydocker'
-alias yt='youtube-dl --add-metadata -ic'
 alias myip="curl http://ipecho.net/plain; echo"
-alias notes='cd ~/Dropbox/notes'
 alias packages='sudo apt list --installed | less'
 alias pk="pkill --signal SIGTERM --echo --count" # e.g. pkill tmux
 alias repl='planck'
@@ -26,6 +24,7 @@ alias repos='cd ~/repos'
 alias rm="trash"
 alias sa='sudo apt'
 alias snaps='snap list'
+alias snippets='cd ~/Dropbox/snippets'
 alias syslog='sudo tail -100f /var/log/syslog'
 alias vi='nvim'
 alias vim='nvim'
