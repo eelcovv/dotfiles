@@ -1,4 +1,4 @@
-# tmux
+# Tmux
 
 Configuration for tmux.
 

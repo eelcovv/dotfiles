@@ -30,6 +30,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias t2='tree -L 2 -I node_modules'
 alias t3='tree -L 3 -I node_modules'
+alias tms='tmux switch -t' # then type the Tmux session name
 alias webify="mogrify -resize 690\> *.png"
 alias webserver='python -m http.server 8090'
 alias wget="wget --continue"
