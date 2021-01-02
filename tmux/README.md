@@ -18,6 +18,8 @@ Plugins:
 
 - [resurrect](https://github.com/tmux-plugins/tmux-resurrect)
 - [continuum](https://github.com/tmux-plugins/tmux-continuum)
+- [gruvbox](https://github.com/egel/tmux-gruvbox)
+- [sensible](https://github.com/tmux-plugins/tmux-sensible)
 
 Press `prefix` + `I` (capital i, as in Install) to fetch the plugin.
 The default `prefix` keybinding is `Ctrl` + `b`.
