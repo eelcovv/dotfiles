@@ -58,3 +58,5 @@
   username = jackdbd
 [web]
   browser = chromium-browser
+[color]
+	ui = auto

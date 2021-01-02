@@ -10,9 +10,9 @@ alias gg='gitg'
 alias gk='gitk --all'
 alias gla='git config --get-regexp alias'
 alias grep='grep --color=auto'
+alias kak="~/repos/kakoune/src/kak"
 alias l='lsd --oneline' # ls -C
-alias la='lsd --almost-all --oneline'
-alias ll='lsd --all' # ls -alF
+alias ll='lsd --all --long --oneline' # ls -alF
 alias loc='cloc --progress=1 --vcs git' # or cloc --progress=1 --vcs git --by-file
 alias ls='ls -l --human-readable --color=auto --group-directories-first'
 alias lzd='lazydocker'

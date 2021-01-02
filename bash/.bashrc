@@ -11,6 +11,12 @@
 
 EDITOR="nvim"
 
+# My screen enters sleep mode after 5 minutes.
+# https://askubuntu.com/a/511759/731701
+# https://unix.stackexchange.com/a/231267/413087
+# I tried many things. This is the only thing that works:
+xset -display :0 s off -dpms
+
 ## bash_history config #########################################################
 
 # don't put duplicate lines or lines starting with space in the history
@@ -213,23 +219,32 @@ PS2='\[$__bold\]\[$__yellow\] > \[$__reset\]'
 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-## Programming languages #######################################################
+## Misc. binaries ##############################################################
 
 __add_to_path "$HOME/.local/bin"
 __add_to_path "$HOME/.cargo/bin"
 __add_to_path "$HOME/.nimble/bin"
 __add_to_path "$HOME/.poetry/bin"
 __add_to_path "$HOME/.pyenv/bin"
+__add_to_path "$HOME/.zig"
 __add_to_path "$HOME/bin/miniconda3/bin"
+__add_to_path "/snap/bin"
+__add_to_path "$HOME/.platformio/penv/bin"
+export WASMTIME_HOME="$HOME/.wasmtime"
+__add_to_path "$WASMTIME_HOME/bin"
+
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 complete -o default -F _pip_completion pip
 
 # nvm (Node.js Version Manager) and its autocompletion
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.local/share/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 export DENO_INSTALL="~/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+source "$HOME/.cargo/env"
+
