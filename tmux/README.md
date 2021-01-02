@@ -8,6 +8,8 @@ To create the symlinks in the home directory, run the following command from **t
 stow . --target ~
 ```
 
+Note: I tries to put my Tmux config in `~/.config/tmux/tmux.conf` but it didn't work. I don't know why, but it seems `XDG_CONFIG_HOME` is not recognized. So I keep `.tmux.conf` in my HOME directory.
+
 ## Plugins
 
 I use [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) to manage tmux plugins.
