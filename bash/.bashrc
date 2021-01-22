@@ -226,7 +226,7 @@ __add_to_path "$HOME/.cargo/bin"
 __add_to_path "$HOME/.nimble/bin"
 __add_to_path "$HOME/.poetry/bin"
 __add_to_path "$HOME/.pyenv/bin"
-__add_to_path "$HOME/.zig"
+# __add_to_path "$HOME/.zig" # no longer necessary since I'm using https://github.com/marler8997/zigup
 __add_to_path "$HOME/bin/miniconda3/bin"
 __add_to_path "/snap/bin"
 __add_to_path "$HOME/.platformio/penv/bin"
