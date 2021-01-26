@@ -1,0 +1,26 @@
+{
+	// Place your snippets for zig here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	"import std": {
+		"prefix": "std",
+		"body": "const std = @import(\"std\");",
+		"description": "Import Zig standard library"
+	},
+	"log.debug variable and type": {
+		"prefix": "ld",
+		"body": "std.log.debug(\"$0: {} type: {}\", .{$0, @typeInfo(@TypeOf($0))});",
+		"description": "Log a variable and its type to stdout"
+	},
+	"define struct": {
+		"prefix": "str",
+		"body": "const Foo = struct {\n    x: f64,\n};",
+		"description": "Define a struct"
+	},
+	"while loop": {
+		"prefix": "wh",
+		"body": "var i: usize = 0;\nwhile (i < 10) : (i += 1) {\n    $0\n}",
+		"description": "while loop skeleton"
+	}
+}
