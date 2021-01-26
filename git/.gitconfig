@@ -23,11 +23,11 @@
   ls = log --oneline
   mt = mergetool
   pf = push --force-with-lease
-  pum = pull upstream master
+  pum = pull upstream main
   ra = rebase --abort
   rc = rebase --continue
   ri = rebase --interactive
-  rim = rebase --interactive origin/master
+  rim = rebase --interactive origin/main
   rsh = reset --soft HEAD~
   sl = stash list
   ss = stash save
