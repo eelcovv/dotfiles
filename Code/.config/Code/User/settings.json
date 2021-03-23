@@ -73,4 +73,32 @@
     "[nunjucks]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "githubIssues.queries": [
+        {
+            "label": "Bugs",
+            "query": "repo:${owner}/${repository} sort:created-desc state:open label:bug"
+        },
+        {
+            "label": "Created By Me",
+            "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+        }
+    ],
+    "githubPullRequests.queries": [
+        {
+            "label": "Assigned To Me",
+            "query": "is:open assignee:${user}"
+        },
+        {
+            "label": "Created By Me",
+            "query": "is:open author:${user}"
+        },
+        {
+            "label": "Waiting For My Review",
+            "query": "is:open review-requested:${user}"
+        },
+        {
+            "label": "WIP PRs",
+            "query": "is:open"
+        },
+    ]
 }
