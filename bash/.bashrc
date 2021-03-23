@@ -232,6 +232,9 @@ __add_to_path "/snap/bin"
 __add_to_path "$HOME/.platformio/penv/bin"
 export WASMTIME_HOME="$HOME/.wasmtime"
 __add_to_path "$WASMTIME_HOME/bin"
+__add_to_path "/usr/local/go/bin"
+__add_to_path "$HOME/go/bin"
+__add_to_path "$HOME/.rvm/bin"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -247,4 +250,3 @@ export DENO_INSTALL="~/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 source "$HOME/.cargo/env"
-
