@@ -1,7 +1,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
+alias blog='cd ~/repos/personal-website/src/posts'
 alias df='pydf'
-alias diff='meld'
 alias dk='docker'
 alias dotfiles='cd ~/repos/dotfiles'
 alias down='cd ~/Downloads'

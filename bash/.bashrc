@@ -127,6 +127,9 @@ function print_path () {
 
 # __add_to_path - add to PATH (if not in PATH already)
 # usage: __add_to_path "/some/full/path/"
+# NOTE: if PATH has to be modified only for a particular project, use this
+# function from the direnv standard library and call it in the project's .envrc
+# https://github.com/direnv/direnv/blob/master/man/direnv-stdlib.1.md#path_add-path
 function __add_to_path() {
     if [[ :$PATH: == *:"$1":* ]]; then
         # "$1 is already in PATH"
@@ -235,6 +238,8 @@ __add_to_path "$WASMTIME_HOME/bin"
 __add_to_path "/usr/local/go/bin"
 __add_to_path "$HOME/go/bin"
 __add_to_path "$HOME/.rvm/bin"
+__add_to_path "$HOME/.jsvu"
+__add_to_path "$HOME/.deno/bin"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -245,8 +250,5 @@ complete -o default -F _pip_completion pip
 export NVM_DIR="$HOME/.local/share/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
-
-export DENO_INSTALL="~/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
 
 source "$HOME/.cargo/env"
