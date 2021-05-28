@@ -1,104 +1,124 @@
 {
-    // My personal rule: write only non-default settings and comment why I don't
-    // use the default value of a specific VSCode setting.
-    // https://vscode.readthedocs.io/en/latest/getstarted/settings/
-    // https://code.visualstudio.com/docs/editor/intellisense#_customizing-intellisense
+  // My personal rule: write only non-default settings and comment why I don't
+  // use the default value of a specific VSCode setting.
+  // https://vscode.readthedocs.io/en/latest/getstarted/settings/
+  // https://code.visualstudio.com/docs/editor/intellisense#_customizing-intellisense
 
-    // Never use CSS floats. But this setting is mostly a reminder that CSS lint
-    // settings are available in VSCode.
-    "css.lint.float": "error",
+  // Never use CSS floats. But this setting is mostly a reminder that CSS lint
+  // settings are available in VSCode.
+  "css.lint.float": "error",
 
-    // "diffEditor.ignoreTrimWhitespace": true,
+  // "diffEditor.ignoreTrimWhitespace": true,
 
-    // When this is on, it trips me up all the time.
-    "editor.acceptSuggestionOnEnter": "off",
+  // When this is on, it trips me up all the time.
+  "editor.acceptSuggestionOnEnter": "off",
 
-    // I find the minimap useless.
-    "editor.minimap.enabled": false,
+  // https://stackoverflow.com/questions/41115285/disable-tooltip-hint-in-visual-studio-code
+  // "editor.hover.enabled": false,
 
-    // I don't want these suggestions if I'm typing fast (i.e. if I know what to write).
-    "editor.quickSuggestionsDelay": 100,
+  // I find the minimap useless.
+  "editor.minimap.enabled": false,
 
-    // I want to render all the spaces for all the languages. It's abolutely
-    // fundamental for Makefiles, but I like it for any other language too.
-    "editor.renderWhitespace": "all",
+  // "editor.quickSuggestions": {
+  //   "other": false,
+  //   "comments": false,
+  //   "strings": false
+  // },
+  // I don't want these suggestions if I'm typing fast (i.e. if I know what to write).
+  "editor.quickSuggestionsDelay": 100,
 
-    // I want to occasionally exceed 80 characters, and never 120 characters.
-    "editor.rulers": [
-        80,
-        120
-    ],
+  // I want to render all the spaces for all the languages. It's abolutely
+  // fundamental for Makefiles, but I like it for any other language too.
+  "editor.renderWhitespace": "all",
 
-    // TODO: double-check emmet configuration. I'm not sure if I need this.
-    "emmet.includeLanguages": { "javascript": "html" },
+  // I want to occasionally exceed 80 characters, and never 120 characters.
+  "editor.rulers": [80, 120],
 
-    // I don't understand why true is not the default value for this.
-    "emmet.triggerExpansionOnTab": true,
+  // I don't understand why true is not the default value for this.
+  "emmet.triggerExpansionOnTab": true,
 
-    // Hide stuff I don't need to see from the file explorer
-    "files.exclude": {
-        "**/node_modules/": true,
-        "**/zig-cache/": true,
+  // Hide stuff I don't need to see from the file explorer
+  "files.exclude": {
+    "**/node_modules/": true,
+    "**/zig-cache/": true
+  },
+
+  // TODO: by default, git commits are not signed with GPG. Should I enable this?
+  // "git.enableCommitSigning": false,
+
+  // I don't understand why true is not the default value for this.
+  // https://github.com/Zignd/HTML-CSS-Class-Completion
+  "html-css-class-completion.enableEmmetSupport": true,
+
+  // Obviously the kite wizard at the startup is quite annoying.
+  "kite.showWelcomeNotificationOnStartup": false,
+
+  // Setting a default python interpreter is convenient, but it might not be
+  // the best thing to do. It would be better to hook up VSCode to the python
+  // virtual environment for each project.
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+
+  // Language specific overrides -------------------------------------------- //
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.suggestOnTriggerCharacters": false
+    // "editor.wordBasedSuggestions": false,
+  },
+  "[nunjucks]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  // GitHub Pull Requests and Issues ---------------------------------------- //
+  "githubIssues.queries": [
+    {
+      "label": "Bugs",
+      "query": "repo:${owner}/${repository} sort:created-desc state:open label:bug"
     },
-
-    // TODO: by default, git commits are not signed with GPG. Should I enable this?
-    // "git.enableCommitSigning": false,
-
-    // I don't understand why true is not the default value for this.
-    // https://github.com/Zignd/HTML-CSS-Class-Completion
-    "html-css-class-completion.enableEmmetSupport": true,
-
-    // Obviously the kite wizard at the startup is quite annoying.
-    "kite.showWelcomeNotificationOnStartup": false,
-
-    // Setting a default python interpreter is convenient, but it might not be
-    // the best thing to do. It would be better to hook up VSCode to the python
-    // virtual environment for each project.
-    "python.defaultInterpreterPath": "/usr/bin/python3",
-
-    // language specific overrides
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "label": "Created By Me",
+      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    }
+  ],
+  "githubPullRequests.queries": [
+    {
+      "label": "Assigned To Me",
+      "query": "is:open assignee:${user}"
     },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "label": "Created By Me",
+      "query": "is:open author:${user}"
     },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "label": "Waiting For My Review",
+      "query": "is:open review-requested:${user}"
     },
-    "[markdown]": {
-        "editor.suggestOnTriggerCharacters": false,
-        // "editor.wordBasedSuggestions": false,
-    },
-    "[nunjucks]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "githubIssues.queries": [
-        {
-            "label": "Bugs",
-            "query": "repo:${owner}/${repository} sort:created-desc state:open label:bug"
-        },
-        {
-            "label": "Created By Me",
-            "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
-        }
-    ],
-    "githubPullRequests.queries": [
-        {
-            "label": "Assigned To Me",
-            "query": "is:open assignee:${user}"
-        },
-        {
-            "label": "Created By Me",
-            "query": "is:open author:${user}"
-        },
-        {
-            "label": "Waiting For My Review",
-            "query": "is:open review-requested:${user}"
-        },
-        {
-            "label": "WIP PRs",
-            "query": "is:open"
-        },
-    ]
+    {
+      "label": "WIP PRs",
+      "query": "is:open"
+    }
+  ],
+
+  // Other extensions ------------------------------------------------------- //
+  "webhint.enableTelemetry": "disabled",
+  "tailwindCSS.emmetCompletions": true,
+  "turboConsoleLog.includeFileNameAndLineNum": false
 }
