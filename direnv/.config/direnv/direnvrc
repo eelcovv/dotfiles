@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 
-# This file allows to extend direnv
+# This file allows to extend direnv.
+# Don't forget that direnv already has a standard library, so you can use
+# functions from the standard library in your .envrc (not this file).
 # https://github.com/direnv/direnv#the-stdlib
+# https://github.com/direnv/direnv/blob/master/man/direnv-stdlib.1.md
 
 # Integrate direnv with nvm (Node.js version manager)
+# Taken from here, but replaced ~/.nvm/nvm.sh with $NVM_DIR/nvm.sh because it's
+# more generic: sometimes nvm is not installed in ~/.nvm
 # https://blog.differentpla.net/blog/2019/01/30/nvm-direnv/
+# There is also a `use node` function in the direnv standard library, but I
+# prefer to use this one.
+# https://github.com/direnv/direnv/blob/master/man/direnv-stdlib.1.md#use-node-version
 use_nodejs() {
     NODE_VERSION="$1"
 
-    type nvm >/dev/null 2>&1 || . ~/.nvm/nvm.sh
+    type nvm >/dev/null 2>&1 || . $NVM_DIR/nvm.sh
     nvm use "$NODE_VERSION"
 }

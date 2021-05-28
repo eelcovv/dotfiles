@@ -15,7 +15,7 @@ In every project where you are using [nvm](https://github.com/direnv/direnv#the-
 For example, in one of your Node.js project's you might have a `.envrc` like this:
 
 ```sh
-use nodejs 10.17.0
+use_nodejs 14.17.0
 ```
 
 Don't forget to execute `direnv allow` the first time and every time you make a change to the `.envrc` of your project.
