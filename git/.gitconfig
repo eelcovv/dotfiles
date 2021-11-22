@@ -35,7 +35,16 @@
   type = cat-file -t
   visual = !gitk
 [cola]
-  spellcheck = false
+  spellcheck = true
+  theme = default
+  statusshowtotals = true
+  statusindent = true
+  icontheme = default
+  boldheaders = true
+  fontdiff = Monospace,12,-1,5,50,0,0,0,0,0
+  maxrecent = 5
+  expandtab = false
+  linebreak = true
 [core]
   editor = nvim
 [diff]
@@ -59,4 +68,8 @@
 [web]
   browser = chromium-browser
 [color]
-	ui = auto
+  ui = auto
+[gui]
+  editor = gvim
+  historybrowser = gitk
+  diffcontext = 7
