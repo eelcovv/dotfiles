@@ -118,7 +118,10 @@
   ],
 
   // Other extensions ------------------------------------------------------- //
-  "webhint.enableTelemetry": "disabled",
-  "tailwindCSS.emmetCompletions": true,
-  "turboConsoleLog.includeFileNameAndLineNum": false
+  "turboConsoleLog.includeFileNameAndLineNum": false,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "security.workspace.trust.untrustedFiles": "open"
 }
