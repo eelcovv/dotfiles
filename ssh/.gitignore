@@ -1,8 +1,15 @@
-.ssh/conf.d/*
+# ignore everything by default
+.ssh/*
+
+# unignore ssh config
+!.ssh/config
+
 # unignore github and gitlab config
+.ssh/conf.d/*
 !.ssh/conf.d/github.conf
 !.ssh/conf.d/gitlab.conf
 
+# obviously ignore ssh keys
 .ssh/keys/
 
 .ssh/known_hosts
