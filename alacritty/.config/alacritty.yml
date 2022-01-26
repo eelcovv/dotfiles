@@ -1,22 +1,11 @@
-window:
-  padding:
-    x: 2
-    y: 2
-
-title: Alacritty
-
-scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  history: 5000
-
 background_opacity: 1.0
 
 font:
   size: 11.0
-  # Normal (roman) font face
   normal:
-    family: JetBrainsMono Nerd Font # mononoki Nerd Font Mono # FiraCode Nerd Font Mono
-    # The `style` can be specified to pick a specific face.
+    family: JetBrainsMono Nerd Font
+    # mononoki Nerd Font Mono
+    # FiraCode Nerd Font Mono
     style: Regular
 
   bold:
@@ -83,6 +72,32 @@ schemes:
       cyan:    '0x427b58'
       white:   '0x3c3836'
 
+  # https://github.com/eendroroy/alacritty-theme/blob/master/themes/palenight.yml
+  palenight: &palenight
+    primary:
+      background: '0x292d3e'
+      foreground: '0xd0d0d0'
+
+    normal:
+      black:   '0x292d3e'
+      red:     '0xf07178'
+      green:   '0xc3e88d'
+      yellow:  '0xffcb6b'
+      blue:    '0x82aaff'
+      magenta: '0xc792ea'
+      cyan:    '0x89ddff'
+      white:   '0xd0d0d0'
+
+    bright:
+      black:   '0x434758'
+      red:     '0xff8b92'
+      green:   '0xddffa7'
+      yellow:  '0xffe585'
+      blue:    '0x9cc4ff'
+      magenta: '0xe1acff'
+      cyan:    '0xa3f7ff'
+      white:   '0xffffff'
+
   papercolor_light: &papercolor_light
     primary:
       background: '0xEEEEEE'
@@ -106,6 +121,33 @@ schemes:
       cyan:    '0x3E999F'
       white:   '0xF5F5F5'
 
+  # https://github.com/eendroroy/alacritty-theme/blob/master/themes/snazzy.yaml
+  snazzy: &snazzy
+    primary:
+      background: '0x282a36'
+      foreground: '0xeff0eb'
+
+    normal:
+      black:   '0x282a36'
+      red:     '0xff5c57'
+      green:   '0x5af78e'
+      yellow:  '0xf3f99d'
+      blue:    '0x57c7ff'
+      magenta: '0xff6ac1'
+      cyan:    '0x9aedfe'
+      white:   '0xf1f1f0'
+
+  
+    bright:
+      black:   '0x686868'
+      red:     '0xff5c57'
+      green:   '0x5af78e'
+      yellow:  '0xf3f99d'
+      blue:    '0x57c7ff'
+      magenta: '0xff6ac1'
+      cyan:    '0x9aedfe'
+      white:   '0xf1f1f0'
+
   thelovelace: &thelovelace
     primary:
       background: '0x1D1F28'
@@ -128,8 +170,79 @@ schemes:
       magenta: '0x556FFF'
       cyan:    '0x3FDCEE'
       white:   '0xBEBEC1'
+  
+  # https://github.com/zatchheems/tokyo-night-alacritty-theme
+  tokyo-night: &tokyo-night
+    # Default colors
+    primary:
+      background: '0x1a1b26'
+      foreground: '0xa9b1d6'
 
-colors: *thelovelace
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x787c99'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+  tokyo-night-storm: &tokyo-night-storm
+    # Default colors
+    primary:
+      background: '0x24283b'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x9699a8'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer
+  history: 5000
+
+title: Alacritty
+
+window:
+  padding:
+    x: 10
+    y: 10
+
 # colors: *gruvbox_dark
 # colors: *gruvbox_light
 # colors: *papercolor_light
+# colors: *palenight
+colors: *snazzy
+# colors: *thelovelace
+# colors: *tokyo-night
