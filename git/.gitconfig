@@ -45,6 +45,8 @@
   maxrecent = 5
   expandtab = false
   linebreak = true
+[commit]
+  template = ~/.gitmessage
 [core]
   editor = nvim
 [diff]
