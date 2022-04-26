@@ -1,3 +1,5 @@
-.lsp/
-
-.clj-kondo/.cache/
+# Ignore all files in Visual Studio Code config directory, except for
+# keybindings and settings
+Code/.config/
+!Code/.config/Code/User/keybindings.json
+!Code/.config/Code/User/settings.json
