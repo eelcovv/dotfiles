@@ -1,22 +1,22 @@
 font:
   size: 11.0
   normal:
-    family: JetBrainsMono Nerd Font
-    # mononoki Nerd Font Mono
-    # FiraCode Nerd Font Mono
+    family: FiraCode
+    # family: JetBrainsMono Nerd Font
+    # family: mononoki
     style: Regular
 
-  bold:
-    family: JetBrainsMono Nerd Font
-    style: Bold
+  # bold:
+  #   family: JetBrainsMono Nerd Font
+  #   style: Bold
 
-  italic:
-    family: JetBrainsMono Nerd Font
-    style: Italic
+  # italic:
+  #   family: JetBrainsMono Nerd Font
+  #   style: Italic
 
-  bold_italic:
-    family: JetBrainsMono Nerd Font
-    style: Bold Italic
+  # bold_italic:
+  #   family: JetBrainsMono Nerd Font
+  #   style: Bold Italic
 
 # https://github.com/eendroroy/alacritty-theme
 schemes:
@@ -233,7 +233,7 @@ scrolling:
 title: Alacritty
 
 window:
-  opacity: 0.95
+  opacity: 1.0
   padding:
     x: 10
     y: 10
