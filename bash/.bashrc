@@ -161,10 +161,6 @@ __add_to_path "$HOME/.fzf/bin"
 [ -f ~/.fzf/shell/completion.bash ] && source "$HOME/.fzf/shell/completion.bash" 2> /dev/null
 [ -f ~/.fzf/shell/key-bindings.bash ] && source "$HOME/.fzf/shell/key-bindings.bash"
 
-# z to jump around directories
-# https://github.com/rupa/z/
-[ -x ~/bin/z.sh ] && source ~/bin/z.sh
-
 # bash hook for direnv
 # https://direnv.net/
 # eval is evil, but direnv is too useful not to have it
@@ -181,7 +177,6 @@ if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
 fi
 
 # Add SSH keys to the SSH agent
-ssh-add ~/.ssh/keys/id_rsa_digitalocean
 ssh-add ~/.ssh/keys/id_rsa_github
 ssh-add ~/.ssh/keys/id_rsa_gitlab
 
@@ -222,33 +217,41 @@ PS2='\[$__bold\]\[$__yellow\] > \[$__reset\]'
 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# add to PATH all Rust programs binaries
+__add_to_path "$HOME/.cargo/bin"
+source "$HOME/.cargo/env"
+
 ## Misc. binaries ##############################################################
 
-__add_to_path "$HOME/.local/bin"
-__add_to_path "$HOME/.cargo/bin"
-__add_to_path "$HOME/.nimble/bin"
-__add_to_path "$HOME/.poetry/bin"
-__add_to_path "$HOME/.pyenv/bin"
+# __add_to_path "$HOME/.local/bin"
+# __add_to_path "$HOME/.cargo/bin"
+# __add_to_path "$HOME/.nimble/bin"
+# __add_to_path "$HOME/.poetry/bin"
+# __add_to_path "$HOME/.pyenv/bin"
 # __add_to_path "$HOME/.zig" # no longer necessary since I'm using https://github.com/marler8997/zigup
-__add_to_path "$HOME/bin/miniconda3/bin"
-__add_to_path "/snap/bin"
-__add_to_path "$HOME/.platformio/penv/bin"
-export WASMTIME_HOME="$HOME/.wasmtime"
-__add_to_path "$WASMTIME_HOME/bin"
-__add_to_path "/usr/local/go/bin"
-__add_to_path "$HOME/go/bin"
-__add_to_path "$HOME/.rvm/bin"
-__add_to_path "$HOME/.jsvu"
-__add_to_path "$HOME/.deno/bin"
+# __add_to_path "$HOME/bin/miniconda3/bin"
+# __add_to_path "/snap/bin"
+# __add_to_path "$HOME/.platformio/penv/bin"
+# export WASMTIME_HOME="$HOME/.wasmtime"
+# __add_to_path "$WASMTIME_HOME/bin"
+# __add_to_path "/usr/local/go/bin"
+# __add_to_path "$HOME/go/bin"
+# __add_to_path "$HOME/.rvm/bin"
+# __add_to_path "$HOME/.jsvu"
+# __add_to_path "$HOME/.deno/bin"
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
-complete -o default -F _pip_completion pip
+# complete -o default -F _pip_completion pip
 
-# nvm (Node.js Version Manager) and its autocompletion
-export NVM_DIR="$HOME/.local/share/nvm"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+# [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
-source "$HOME/.cargo/env"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/jack/google-cloud-sdk/path.bash.inc' ]; then . '/home/jack/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/jack/google-cloud-sdk/completion.bash.inc' ]; then . '/home/jack/google-cloud-sdk/completion.bash.inc'; fi
