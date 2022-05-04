@@ -4,5 +4,8 @@ Code/.config/
 !Code/.config/Code/User/keybindings.json
 !Code/.config/Code/User/settings.json
 
+# Ignore gitk config, since gitk rewrites its config file every time it is launched
+git/.config/git/gitk
+
 # Ignore all Tmux plugins (installed by Tmux Plugin Manager)
 tmux/.config/tmux/plugins
