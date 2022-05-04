@@ -5,15 +5,12 @@
 # https://stackoverflow.com/questions/572237/whats-the-best-three-way-merge-tool
 [alias]
   au = add --update
-  bd = branch --delete
   br = branch
   ca = commit --amend
   can = commit --amend --no-edit
   cm = commit --message
   co = checkout
-  cp = cherry-pick
   dt = difftool
-  dtk = difftool --tool=kdiff3
   dth = difftool --tool-help
   dump = cat-file -p
   fp = fetch --prune
@@ -35,16 +32,18 @@
   type = cat-file -t
   visual = !gitk
 [cola]
-  spellcheck = true
-  theme = default
-  statusshowtotals = true
-  statusindent = true
-  icontheme = default
   boldheaders = true
-  fontdiff = Monospace,12,-1,5,50,0,0,0,0,0
-  maxrecent = 5
   expandtab = false
+  fontdiff = Monospace,12,-1,5,50,0,0,0,0,0
+  icontheme = default
   linebreak = true
+  maxrecent = 5
+  spellcheck = true
+  statusindent = true
+  statusshowtotals = true
+  theme = default
+[color]
+  ui = auto
 [commit]
   template = ~/.gitmessage
 [core]
@@ -57,6 +56,8 @@
   cmd = meld "$LOCAL" "$REMOTE"
 [github]
   user = jackdbd
+[gui]
+  diffcontext = 7
 [http]
   cookiefile = /home/jack/.gitcookies
 [merge]
@@ -64,14 +65,6 @@
 [mergetool]
   prompt = true
 [user]
-  email = jackdebidda@gmail.com
+  email = giacomo@giacomodebidda.com
   name = Giacomo Debidda
   username = jackdbd
-[web]
-  browser = chromium-browser
-[color]
-  ui = auto
-[gui]
-  editor = gvim
-  historybrowser = gitk
-  diffcontext = 7

@@ -2,13 +2,15 @@
 
 Global configuration for git.
 
-To create the symlinks in the home directory, run the following command from **this** directory:
+git supports the [XDG Base Directory specification](https://wiki.archlinux.org/title/XDG_Base_Directory).
+
+To create a symlink to the `XDG_CONFIG_HOME` directory, run the following command from **this** directory:
 
 ```sh
-unlink ~/.config/git/gitk && stow . --target ~
+stow . --target ~/ --verbose 2
 ```
 
-Note: gitk rewrites its config file every time it's launched. That's why we unlink it first.
+## .gitmessage
 
 Examples of a `.gitmessage` template:
 
@@ -26,3 +28,9 @@ Check the `.gitmessage` template used in the current git repository:
 ```sh
 git config --local --get commit.template
 ```
+
+## See also
+
+- [Other useful git aliases](https://gist.github.com/pksunkara/988716)
+- [git tips](https://github.com/servo/servo/wiki/Github-workflow#git-tips)
+- [Other useful diff/merge tools](https://stackoverflow.com/questions/572237/whats-the-best-three-way-merge-tool)
