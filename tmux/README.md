@@ -1,6 +1,6 @@
 # Tmux
 
-Configuration for tmux.
+Configuration for [tmux](https://github.com/tmux/tmux).
 
 tmux, since version 3.2, supports the [XDG Base Directory specification](https://wiki.archlinux.org/title/XDG_Base_Directory).
 
@@ -38,6 +38,7 @@ The default `prefix` keybinding is `Ctrl` + `b`, but I prefer `Ctrl` + `a` (see 
 
 See also:
 
+- [Tmux cheat sheet](https://tmuxcheatsheet.com/)
 - [My Writing & Coding Workflow](http://jacobzelko.com/workflow/), by Jacob Zelko.
 - [This tmux.conf](https://gist.github.com/rodricels/7951c3bd505d343b07309b76188af9b3)
 - [This tmux.conf](https://github.com/wbkang/wbk-stow/blob/master/tmux-config/.tmux.conf)
