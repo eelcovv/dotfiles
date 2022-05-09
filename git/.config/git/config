@@ -45,7 +45,7 @@
 [color]
   ui = auto
 [commit]
-  template = ~/.gitmessage
+  template = ~/.config/git/gitmessage
 [core]
   editor = nvim
 [diff]
@@ -58,8 +58,6 @@
   user = jackdbd
 [gui]
   diffcontext = 7
-[http]
-  cookiefile = /home/jack/.gitcookies
 [merge]
   tool = meld
 [mergetool]

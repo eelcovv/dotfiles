@@ -10,9 +10,11 @@ To create a symlink to the `XDG_CONFIG_HOME` directory, run the following comman
 stow . --target ~/ --verbose 2
 ```
 
-## .gitmessage
+## git commit template
 
-Examples of a `.gitmessage` template:
+The template `gitmessage` will be loaded every time you execute `git commit`.
+
+Examples of a git commit template:
 
 - [Git Gud: Create a .gitmessage](https://dev.to/vetswhocode/git-gud-create-a-gitmessage-4ibj)
 - [angular's .gitmessage](https://github.com/angular/angular/blob/master/.gitmessage)
@@ -34,3 +36,4 @@ git config --local --get commit.template
 - [Other useful git aliases](https://gist.github.com/pksunkara/988716)
 - [git tips](https://github.com/servo/servo/wiki/Github-workflow#git-tips)
 - [Other useful diff/merge tools](https://stackoverflow.com/questions/572237/whats-the-best-three-way-merge-tool)
+- [Better Commit Messages with a .gitmessage Template](https://thoughtbot.com/blog/better-commit-messages-with-a-gitmessage-template)

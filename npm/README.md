@@ -5,7 +5,7 @@ Configuration for npm.
 To create the symlinks in the home directory, run the following command from **this** directory:
 
 ```sh
-stow . --target ~
+stow . --target ~/ --verbose 2
 ```
 
 Examples of a `.npmrc`:
