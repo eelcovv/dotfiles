@@ -11,6 +11,7 @@ alias gla='git config --get-regexp alias'
 alias grep='grep --color=auto'
 alias gtoken='gcloud auth print-identity-token'
 alias l='lsd --oneline' # ls -C
+alias lg='lazygit'
 alias ll='lsd --all --long --oneline' # ls -alF
 alias loc='cloc --progress=1 --vcs git' # or cloc --progress=1 --vcs git --by-file
 alias ls='ls -l --human-readable --color=auto --group-directories-first'
