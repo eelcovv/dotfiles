@@ -62,6 +62,8 @@
   tool = meld
 [mergetool]
   prompt = true
+[pull]
+  rebase = false
 [user]
   email = giacomo@giacomodebidda.com
   name = Giacomo Debidda
