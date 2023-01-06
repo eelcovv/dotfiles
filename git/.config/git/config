@@ -24,6 +24,7 @@
   ra = rebase --abort
   rc = rebase --continue
   ri = rebase --interactive
+  ric = rebase --interactive origin/canary
   rim = rebase --interactive origin/main
   rsh = reset --soft HEAD~
   sl = stash list
@@ -58,6 +59,8 @@
   user = jackdbd
 [gui]
   diffcontext = 7
+[init]
+  defaultBranch = main
 [merge]
   tool = meld
 [mergetool]
