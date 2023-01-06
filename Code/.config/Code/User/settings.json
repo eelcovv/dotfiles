@@ -120,8 +120,16 @@
   // Other extensions ------------------------------------------------------- //
   "turboConsoleLog.includeFileNameAndLineNum": false,
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
+    "*.ipynb": "jupyter-notebook"
   },
   "debug.javascript.autoAttachFilter": "onlyWithFlag",
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "svelte.enable-ts-plugin": true,
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": false,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": false
+  }
 }

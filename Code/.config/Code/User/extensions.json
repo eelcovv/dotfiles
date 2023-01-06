@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "AugusteRame.zls-vscode",
+    "chakrounanas.turbo-console-log",
+    "eamodio.gitlens",
+    "github.copilot",
+    "mechatroner.rainbow-csv",
+    "mhutchie.git-graph",
+    "ms-azuretools.vscode-docker",
+    "pflannery.vscode-versionlens",
+    "tamasfe.even-better-toml",
+    "tiehuis.zig"
+  ]
+}

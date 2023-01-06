@@ -1,11 +1,21 @@
+# Clojure linter/static analyzer
+.clj-kondo/
+
+# Language Server Protocol
+.lsp/
+
+# Clojure Portal
+.portal/
+
 # Ignore all files in Visual Studio Code config directory, except for
-# keybindings and settings
-Code/.config/
+# VS Code extensions, keybindings and settings
+Code/.config/*
+!Code/.config/Code/User/extensions.json
 !Code/.config/Code/User/keybindings.json
 !Code/.config/Code/User/settings.json
 
-# Ignore gitk config, since gitk rewrites its config file every time it is launched
+# gitk config (gitk rewrites its config file every time it is launched)
 git/.config/git/gitk
 
-# Ignore all Tmux plugins (installed by Tmux Plugin Manager)
+# Tmux plugins (installed by Tmux Plugin Manager)
 tmux/.config/tmux/plugins
