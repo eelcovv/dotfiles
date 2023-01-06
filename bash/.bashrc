@@ -9,7 +9,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-EDITOR="nvim"
+EDITOR="/usr/bin/nvim"
+# EDITOR=/usr/bin/code
 
 # My screen enters sleep mode after 5 minutes.
 # https://askubuntu.com/a/511759/731701
@@ -78,7 +79,7 @@ function colorgrid() {
 # ex - archive extractor
 # usage: ex <file>
 # see https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions
-function ex {
+function ex() {
  if [ -z "$1" ]; then
     # display usage if no parameters given
     echo "Usage: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
@@ -213,7 +214,7 @@ fi
 
 PS2='\[$__bold\]\[$__yellow\] > \[$__reset\]'
 
-## Compilers ###################################################################
+## Misc. #######################################################################
 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -221,24 +222,26 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 __add_to_path "$HOME/.cargo/bin"
 source "$HOME/.cargo/env"
 
-## Misc. binaries ##############################################################
+__add_to_path "/usr/local/go/bin"
 
-# __add_to_path "$HOME/.local/bin"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+__add_to_path "$PNPM_HOME"
+
+export FLYCTL_INSTALL="$HOME/.fly"
+__add_to_path "$FLYCTL_INSTALL/bin"
+__add_to_path "$HOME/graalvm-ce-java19-22.3.0/bin"
+
+# pipx and a few binaries are in $HOME/.local/bin
+__add_to_path "$HOME/.local/bin"
+
 # __add_to_path "$HOME/.cargo/bin"
-# __add_to_path "$HOME/.nimble/bin"
 # __add_to_path "$HOME/.poetry/bin"
 # __add_to_path "$HOME/.pyenv/bin"
-# __add_to_path "$HOME/.zig" # no longer necessary since I'm using https://github.com/marler8997/zigup
-# __add_to_path "$HOME/bin/miniconda3/bin"
-# __add_to_path "/snap/bin"
 # __add_to_path "$HOME/.platformio/penv/bin"
 # export WASMTIME_HOME="$HOME/.wasmtime"
 # __add_to_path "$WASMTIME_HOME/bin"
-# __add_to_path "/usr/local/go/bin"
-# __add_to_path "$HOME/go/bin"
 # __add_to_path "$HOME/.rvm/bin"
 # __add_to_path "$HOME/.jsvu"
-# __add_to_path "$HOME/.deno/bin"
 
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
@@ -249,9 +252,17 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
-
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/jack/google-cloud-sdk/path.bash.inc' ]; then . '/home/jack/google-cloud-sdk/path.bash.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk/path.bash.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/jack/google-cloud-sdk/completion.bash.inc' ]; then . '/home/jack/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+source "$HOME/.config/broot/launcher/bash/br"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
