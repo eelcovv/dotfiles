@@ -50,9 +50,11 @@
 [core]
   editor = nvim
 [diff]
-  tool = meld
+  tool = difftastic
 [difftool]
-  prompt = true
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
 [difftool "meld"]
   cmd = meld "$LOCAL" "$REMOTE"
 [github]
