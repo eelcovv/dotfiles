@@ -53,12 +53,8 @@
   // Obviously the kite wizard at the startup is quite annoying.
   "kite.showWelcomeNotificationOnStartup": false,
 
-  // Setting a default python interpreter is convenient, but it might not be
-  // the best thing to do. It would be better to hook up VSCode to the python
-  // virtual environment for each project.
-  "python.defaultInterpreterPath": "/usr/bin/python3",
-
   // Language specific overrides -------------------------------------------- //
+  "python.defaultInterpreterPath": "/usr/bin/python3",
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -127,9 +123,23 @@
   "svelte.enable-ts-plugin": true,
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
-    "*": false,
-    "yaml": true,
+    "*": true,
     "plaintext": false,
-    "markdown": false
+    "markdown": true,
+    "scminput": false,
+    "yaml": true
+  },
+  "zls.path": "/home/jack/.config/Code/User/globalStorage/augusterame.zls-vscode/zls_install/zls",
+  "zig.zls.path": "/home/jack/.config/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "codeium.enableConfig": {
+    "*": true,
+    "markdown": true
+  },
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "[postcss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
   }
 }
