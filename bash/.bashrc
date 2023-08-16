@@ -179,7 +179,6 @@ fi
 
 # Add SSH keys to the SSH agent
 ssh-add ~/.ssh/keys/id_rsa_github
-ssh-add ~/.ssh/keys/id_rsa_gitlab
 
 ## Git #########################################################################
 
@@ -231,15 +230,14 @@ export FLYCTL_INSTALL="$HOME/.fly"
 __add_to_path "$FLYCTL_INSTALL/bin"
 __add_to_path "$HOME/graalvm-ce-java19-22.3.0/bin"
 
-# pipx and a few binaries are in $HOME/.local/bin
+# a few binaries are in $HOME/.local/bin
 __add_to_path "$HOME/.local/bin"
+__add_to_path "$HOME/.pulumi/bin"
 
 # __add_to_path "$HOME/.cargo/bin"
 # __add_to_path "$HOME/.poetry/bin"
 # __add_to_path "$HOME/.pyenv/bin"
 # __add_to_path "$HOME/.platformio/penv/bin"
-# export WASMTIME_HOME="$HOME/.wasmtime"
-# __add_to_path "$WASMTIME_HOME/bin"
 # __add_to_path "$HOME/.rvm/bin"
 # __add_to_path "$HOME/.jsvu"
 
@@ -266,3 +264,14 @@ source "$HOME/.config/broot/launcher/bash/br"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/jack/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+# wasmtime (WASI runtime)
+export WASMTIME_HOME="$HOME/.wasmtime"
+__add_to_path "$WASMTIME_HOME/bin"
+
+# Scaleway CLI autocomplete initialization.
+eval "$(scw autocomplete script shell=bash)"
