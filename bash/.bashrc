@@ -178,7 +178,7 @@ if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
 fi
 
 # Add SSH keys to the SSH agent
-ssh-add ~/.ssh/keys/id_rsa_github
+ssh-add ~/.ssh/keys/id_github
 
 ## Git #########################################################################
 
@@ -186,11 +186,11 @@ ssh-add ~/.ssh/keys/id_rsa_github
 # Use chmod 777 on git-completion.bash and git-prompt.sh
 
 # https://github.com/git/git/tree/master/contrib/completion
-[ -x ~/bin/git-completion.bash ] && source ~/bin/git-completion.bash
+[ -x /usr/local/bin/git-completion.bash ] && source /usr/local/bin/git-completion.bash
 
 # https://stackoverflow.com/questions/15883416/adding-git-branch-on-the-bash-command-prompt
 # The git-prompt.sh script includes the function __git_ps1
-[ -x ~/bin/git-prompt.sh ] && source ~/bin/git-prompt.sh
+[ -x /usr/local/bin/git-prompt.sh ] && source /usr/local/bin/git-prompt.sh
 
 ## Color prompt ################################################################
 
@@ -274,4 +274,4 @@ export WASMTIME_HOME="$HOME/.wasmtime"
 __add_to_path "$WASMTIME_HOME/bin"
 
 # Scaleway CLI autocomplete initialization.
-eval "$(scw autocomplete script shell=bash)"
+[ -x "$(command -v scw)" ] && eval "$(scw autocomplete script shell=bash)"
