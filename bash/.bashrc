@@ -234,7 +234,6 @@ __add_to_path "$HOME/graalvm-ce-java19-22.3.0/bin"
 __add_to_path "$HOME/.local/bin"
 __add_to_path "$HOME/.pulumi/bin"
 
-# __add_to_path "$HOME/.cargo/bin"
 # __add_to_path "$HOME/.poetry/bin"
 # __add_to_path "$HOME/.pyenv/bin"
 # __add_to_path "$HOME/.platformio/penv/bin"
@@ -250,26 +249,23 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
-# The next line updates PATH for the Google Cloud SDK.
+# update PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk/path.bash.inc"; fi
 
-# The next line enables shell command completion for gcloud.
+# enable shell command completion for gcloud
 if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-source "$HOME/.config/broot/launcher/bash/br"
+if [ -f "$HOME/.config/broot/launcher/bash/br" ]; then source "$HOME/.config/broot/launcher/bash/br"; fi
 
-# bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
+__add_to_path "$BUN_INSTALL"
 
-# pnpm
 export PNPM_HOME="/home/jack/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+__add_to_path "$PNPM_HOME"
 
-# wasmtime (WASI runtime)
 export WASMTIME_HOME="$HOME/.wasmtime"
 __add_to_path "$WASMTIME_HOME/bin"
 
